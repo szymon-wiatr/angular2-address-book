@@ -1,0 +1,8 @@
+<a [routerLink]="['Home']" class="list-link"></a>
+<search-box (update)="term = $event"></search-box>
+<div class="address-list">
+	<list-items [term]="term">
+	</list-items>
+</div>
+
+<a [routerLink]="['Add']" class="add-plus-link"></a>

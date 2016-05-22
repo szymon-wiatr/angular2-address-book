@@ -1,0 +1,11 @@
+<div class="detail-view">
+	<div class="face"></div>
+	<h2 class="detail-header">Details</h2>
+	<div class="detail-data">
+		First name: <strong> {{addressService.selectedAddress?.firstName}} </strong> <br />
+		Last name: <strong> {{addressService.selectedAddress?.lastName}}  </strong> <br />
+		Email:  <code> <a class="e-mail" href="mailto:{{addressService.selectedAddress?.eMail}}">{{addressService.selectedAddress?.eMail}} </a></code> <br />
+		Country:  {{addressService.selectedAddress?.country}}
+		<div *ngIf="addressService.selectedAddress"><hr /> <a [routerLink]="['Edit']" class="action-link">Edit</a> <a href="#" (click)='addressService.deleteAddress(addressService.selectedAddress)' class="delete-address action-link">Delete</a></div>
+	</div>
+</div>

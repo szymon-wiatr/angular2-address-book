@@ -1,0 +1,56 @@
+<div class="detail-view">
+	<div class="face"></div>
+	<h2 class="new-address-header">New Address</h2>
+	<div class="detail-data">
+		<form [ngFormModel]="addressForm"
+	        (ngSubmit)="onSubmit(addressForm.value)"
+	        class="ui form new-address">
+			First name: <input
+						type="text"
+						id="firstnameInput"
+						placeholder="John"
+						#firstName="ngForm" [ngFormControl]="addressForm.controls['firstName']"> <br />
+
+			Last name: <input
+						type="text"
+						id="lastnameInput"
+						placeholder="Smith"
+						#lastName="ngForm" [ngFormControl]="addressForm.controls['lastName']"> <br />
+			Email:  <input
+						type="text"
+						id="mailInput"
+						placeholder="mail@example.com"
+						#mail="ngForm" [ngFormControl]="addressForm.controls['mail']"> <br />
+			Country:	<select #country="ngForm" [ngFormControl]="addressForm.controls['country']" class="countries-select">
+							<option value=""></option>
+							<option *ngFor="#country of addressService.mockedCountries()" value="{{country}}">{{country}}</option>	
+						</select>
+			<button  *ngIf="addressForm.valid" type="submit" class="ui submit-button">Submit</button>  
+		</form>	
+	</div>
+	<div class="validation">
+		<div class="field" [class.error]="!addressForm.find('firstName').valid && addressForm.find('firstName').touched">
+			<div *ngIf="firstName.control.hasError('required') && !firstName.control.pristine" class="ui error message">
+				First name is required
+			</div>
+		</div>
+		<div class="field" [class.error]="!addressForm.find('lastName').valid && addressForm.find('lastName').touched">
+			<div *ngIf="lastName.control.hasError('required') && !lastName.control.pristine" class="ui error message">
+				Last name is required
+			</div>
+		</div>
+		<div class="field" [class.error]="!addressForm.find('mail').valid && addressForm.find('mail').touched">
+			<div *ngIf="!mail.control.valid && !mail.control.pristine" class="ui error message">
+				E-mail is invalid
+			</div>
+			<div *ngIf="mail.control.hasError('required') && !mail.control.pristine" class="ui error message">
+				E-mail is required
+			</div>
+		</div>
+		<div class="field" [class.error]="!addressForm.find('country').valid || addressForm.find('country').touched">
+			<div *ngIf="country.control.hasError('required') && !country.control.pristine" class="ui error message">
+				Country is required
+			</div>
+		</div>
+	</div>
+</div>

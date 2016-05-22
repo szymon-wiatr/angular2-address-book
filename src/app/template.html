@@ -1,0 +1,16 @@
+<header>
+  <nav>
+    <a [routerLink]="['Home']">List</a>
+    <a [routerLink]="['Add']">Add</a>
+  </nav>
+</header>
+<main>
+	<h1 class="title">{{api.title}}</h1>
+
+	<div class="book">
+		<router-outlet></router-outlet>
+	</div>
+</main>
+<footer>
+  Made with ❤ Yeoman ❤ <a href="{{ url }}">generator-ng2-webpack</a>
+</footer>

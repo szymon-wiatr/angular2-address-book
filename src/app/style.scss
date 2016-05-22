@@ -1,0 +1,60 @@
+// styles applied on :host are applied on the current component, "app" in this case
+:host {
+  display: block;
+}
+
+* {
+  color: #000000;
+}
+
+header {
+  background-color: #00285E;
+  padding: 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0px 1px 4px rgb(0, 40, 94);
+
+  a {
+      color: white;
+      margin-right: 10px;
+  }
+
+  a:hover {
+      color: #03A9F4;
+  }
+}
+
+#logo{
+  max-width: 300px;
+}
+
+main {
+  padding: 1em;
+  text-align: center;
+  margin-top: 50px;
+  display: block;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.8em;
+  position: fixed;
+  bottom: 0px;
+  background: white;
+  width: 100%;
+  left: 0;
+  padding: 5px 0px;
+  box-sizing: border-box;
+
+  a {
+      color: #00285E;
+      font-weight: normal;
+  }
+
+  a:hover {
+      color: #03A9F4;
+  }
+}
+

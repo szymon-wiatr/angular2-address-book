@@ -1,0 +1,6 @@
+{
+  "generator-ng2-webpack": {
+    "appname": "angular-2-address-book",
+    "clientFolder": "src"
+  }
+}
